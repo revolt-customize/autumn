@@ -35,7 +35,7 @@ lazy_static! {
 
 pub fn get_s3_bucket(bucket: &str) -> Result<s3::Bucket, Error> {
     s3::Bucket::new_with_path_style(
-        &format!("{}-{}", AUTUMN_BUCKET_PREFIX.to_string(), bucket),
+        &format!("{}{}", AUTUMN_BUCKET_PREFIX.to_string(), bucket),
         S3_REGION.clone(),
         S3_CREDENTIALS.clone(),
     )
